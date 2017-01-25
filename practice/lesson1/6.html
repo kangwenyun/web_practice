@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 记住密码提示框</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .wrap{
+        width: 150px;
+        margin: 0 auto;
+        font-size: 13px;
+    }
+    .tip{
+        border: 1px solid #f90;
+        background: #ffefa4;
+        display: none;
+        width: 200px;
+        margin-top: 5px;
+    }
+    .ipt{
+        margin:0 3px 0 0;
+        vertical-align: text-bottom;
+    }
+    p{
+        margin: 5px;
+    }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <label>
+        <input type="checkbox" class="ipt">两周内自动登陆
+    </label>
+    <div class="tip">
+        <p>为了您的信息安全，请不要在网吧或公用电脑上使用此功能!</p>
+    </div>
+</div>
+<script>
+    $('label').hover(function(){
+        $(".tip").css("display","block");
+    },function(){
+        $(".tip").css("display","none");
+    });
+</script>
+</body>
+</html>

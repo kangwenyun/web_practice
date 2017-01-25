@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义右键菜单</title>
+    <style>
+    ul{
+        display: none;
+        border: 1px solid black;
+        width: 70px;
+        padding-left: 0;
+        position: absolute;
+    }
+    ul li{
+        list-style: none;
+        text-align: center;
+        font-size: 13px;
+        line-height: 23px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <p>自定义右键菜单，请在页面点击右键查看效果。</p>
+        <ul>
+            <li>剪切</li>
+            <li>复制</li>
+            <li>粘贴</li>
+        </ul>
+    </div>
+    <script>
+    var menu = document.getElementsByTagName("ul")[0];
+    document.oncontextmenu = function(event){
+        var event = event || window.event;//兼容，window.event指IE里的最后一个event
+        var style = menu.style;
+        style.display = "block";
+        style.top = event.clientY + 'px';
+        style.left = event.clientX + 'px';
+        return false;//取消默认行为
+    };
+    document.onclick = function(){
+        menu.style.display = "none";
+    }
+    var li = document.getElementsByTagName("li");
+    [0,1,2].forEach(function(item){
+        li[item].addEventListener("mouseenter",function(){
+            event.target.style.background = "#999";
+            event.target.style.color = "#fff";
+        });
+        li[item].addEventListener("mouseleave",function(){
+            event.target.style.background = "#fff";
+            event.target.style.color = "black";
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Div闪烁</title>
+    <script src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .div{
+        width: 200px;
+        height: 200px;
+        color: #fff;
+        text-align: center;
+        line-height: 200px;
+        margin: 100px auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="div" style="background: red;">点击我就闪</div>
+    <script>
+    var style = $(".div")[0].style;
+    $('.div').on("click",function(){
+        var time = setInterval(function(){
+            style.background = '#fff';
+        },100);
+        var time_r = setInterval(function(){
+            $(this).css("background",'red');
+        },200);
+        setTimeout(function(){
+            clearInterval(time);
+            clearInterval(time_r);
+        },1000);
+    });
+    </script>
+</body>
+</html>

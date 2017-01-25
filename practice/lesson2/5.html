@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数传参，改变Div任意属性的值</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .wrap{
+        width: 255px;
+        margin: 0 auto;
+    }
+    div{
+        margin: 5px;
+    }
+    .bt{
+        text-align: center;
+    }
+    .block{
+        width: 200px;
+        height: 200px;
+        background: black;
+        color: white;
+        margin: 0 auto;
+    }
+    p{
+        padding: 10px;
+        font-size: 13px;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div>
+            <label>属性名：</label>
+            <input id="name" type="text" value="background">
+        </div>
+        <div>
+            <label>属性值：</label>
+            <input id="value" type="text" value="blue">
+        </div>
+        <div class="bt">
+            <button id="ok">确定</button>
+            <button id="reset">重置</button>
+        </div>
+        <div class="block">
+            <p>在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</p>
+        </div>
+    </div>
+    <script>
+    $("#ok").on("click",function(){
+        var name = $("#name")[0].value;
+        var value = $("#value")[0].value;
+        $(".block").css(name,value);
+    });
+    $("#reset").on("click",function(){
+        $(".block").css("background","black");
+    });
+    </script>
+</body>
+</html>

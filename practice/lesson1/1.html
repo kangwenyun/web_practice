@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson1_1</title>
+    <script src="../jquery-3.0.0.min.js"></script>
+    <style>
+        #lesson1_1{
+            text-align: center;
+        }
+        .pic{
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="lesson1_1">
+        <button id="width">变宽</button>
+        <button id="height">变高</button>
+        <button id="color">变色</button>
+        <button id="hide">隐藏</button>
+        <button id="reset">重置</button>
+        <div class="pic"></div>
+    </div>
+    <script>
+        var last = 0;
+        var col = ["#000","#FFFF00","#0000FF","#FF0000","#00FF00","#CCEEFF"]
+        function getRandom(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        $("#width").click(function(){
+            if($('.pic').css('width').split('p')[0] < 350){
+                var i = getRandom(1,50);
+                var wdt = Number($('.pic').css('width').split('p')[0]) + 50 + 'px';
+                $('.pic').css('width',wdt);
+            }
+        });
+        $("#height").click(function(){
+            if($('.pic').css('height').split('p')[0] < 400){
+                var i = getRandom(1,50);
+                var wdt = Number($('.pic').css('height').split('p')[0]) + 50 + 'px';
+                $('.pic').css('height',wdt);
+            }
+        });
+        $("#color").click(function(){
+            var i = Math.floor(getRandom(0,5));
+            while( i == last){
+                i = Math.floor(getRandom(0,5));
+            }
+            last = i;
+            $('.pic').css('background',col[i]);
+        });
+        $("#hide").click(function(){
+            $('.pic').css('display','none');
+        });
+        $("#reset").click(function(){
+            $('.pic').css('display','block');
+            $('.pic').css('width','100px');
+            $('.pic').css('height','100px');
+            $('.pic').css('background','#000');
+        });
+    </script>
+</body>
+</html>

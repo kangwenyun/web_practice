@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动播放一幻灯片效果</title>
+    <style>
+    body{
+        background:black;
+        margin: 0;
+    }
+    .out{
+        width: 490px;
+        height: 180px;
+        border-radius: 5px;
+        background: #fff;
+        margin: 5px;
+    }
+    img{
+        width: 480px;
+        height: 170px;
+        margin: 5px;
+        z-index: 1;
+        border: 1px solid #666;
+    }
+    ul{
+        float: right;
+        right: 10px;
+        margin-top: -35px;
+        position: relative;
+        z-index: 2;
+    }
+    ul li{
+        list-style: none;
+        float: left;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background: #F90;
+        margin-left: 5px;
+        text-align: center;
+        color: #fff;
+    }
+    .bg_sel{
+        background: #f60;
+    }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <img src="../img/lesson4/1.jpg" alt="1.jpg"> 
+        <ul>
+            <li class="bg_sel">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+    var i = 0;//计数当前是第几页
+    var j = 0;
+    var src = '';
+    var last = document.getElementsByTagName('li')[0];
+    var li = document.querySelectorAll('li');
+    var timeout;
+    var add = 1;//标志下标方向,1表示正向,该++,0表示反向,该--
+    function auTo(go){
+        if(go){
+            timeout = setInterval(function(){
+                if(add){
+                    i++;
+                    i = (i == 5)? 5 : i % 5;
+                    if( i==5 ){
+                        add = 0;
+                    }
+                }else{
+                    i--;
+                    if( i==1 ){
+                        add = 1;
+                    }
+                }
+                j = i-1;
+                last.classList.remove("bg_sel");
+                document.getElementsByTagName('li')[j].classList.add("bg_sel");
+                src = "../img/lesson4/" + i +".jpg"
+                document.getElementsByTagName('img')[0].setAttribute("src",src);
+                last = document.getElementsByTagName('li')[j];
+            },1500);
+        }else{
+            clearInterval(timeout);
+        }
+    }
+    //有没有不用给五个li分别注册事件的方法
+    [0,1,2,3,4].forEach(function(item){
+        li[item].addEventListener('mouseenter', function(event){
+            //停止自动轮播
+            auTo(0);
+            var num = Number(event.target.innerText);
+            last.classList.remove("bg_sel");
+            document.getElementsByTagName('li')[num-1].classList.add("bg_sel");
+            //展示被选择图片
+            src = "../img/lesson4/" + num +".jpg"
+            document.getElementsByTagName('img')[0].setAttribute("src",src);
+            i = item;
+            last = document.getElementsByTagName('li')[num-1];
+        },false);
+        li[item].addEventListener('mouseleave', function(event){
+            auTo(1);
+        },false);
+    });
+    auTo(1);
+    </script>
+</body>
+</html>

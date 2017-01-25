@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求出数组中所有数字的和</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    #num{
+        width: 300px;
+    }
+    .sum{
+        font-size: 30px;
+        color: red;
+        font-weight: 600;
+    }
+    .tip{
+        font-size: 13px;
+        color: #999;
+        margin-top: 0px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="num" type="text" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15">
+        <p class="tip">输入数字求和，数字之间用半角","号分隔</p>
+        <button>求和</button>
+        <div class="sum"></div>
+    </div>
+    <script>
+    $("button").on("click",function(){
+        var numList = $("#num")[0].value;
+        numList = numList.split(",");
+        var sum = 0;
+        numList.forEach(function(item){
+            sum += Number(item);
+        });
+        $(".sum")[0].innerHTML=sum;
+    });
+    </script>
+</body>
+</html>

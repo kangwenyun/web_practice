@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提示框效果</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .wrap{
+        width: 560px;
+        height: 260px;
+        padding: 5px;
+        border: 1px solid black;
+    }
+    h3{
+        text-align: center;
+        margin: 5px;
+    }
+    ul{
+        margin: 0px;
+        padding: 0px;
+    }
+    ul li{
+        list-style: none;
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        color: #666;
+        font-size: 14px;
+        background: #f0f0f0;
+        border: 1px solid black;
+        z-index: 1;
+    }
+    img{
+        margin: -46px -14px;
+        border: 2px solid #999;
+        cursor: crosshair;
+    }
+    .index{
+        z-index: 999;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3>名车车标展示-鼠标移过显示车标</h3>
+        <ul>
+            <li  class="index"><strong>BMW</strong><br/>宝马汽车
+                <img src="../img/1.jpg" alt="BMW宝马汽车" style="display: block">
+            </li>
+            <li><strong>Alfa Romeo </strong><br/>阿尔法-罗米欧
+                <img src="../img/2.jpg" alt="Alfa Romeo 阿尔法-罗米欧" style="display: none">
+            </li>
+            <li><strong>Skoda </strong><br/>斯柯达
+                <img src="../img/3.jpg" alt="Skoda 斯柯达" style="display: none">
+            </li>
+            <li><strong>Volkswagen </strong><br/>大众汽车
+                <img src="../img/4.jpg" alt="Volkswagen 大众汽车" style="display: none">
+            </li>
+            <li><strong>Saab </strong><br/>萨布牌轿
+                <img src="../img/5.jpg" alt="Saab 萨布牌轿" style="display: none">
+            </li>
+            <li><strong>Lamborghini </strong><br/>兰博基尼
+                <img src="../img/6.jpg" alt="Lamborghini 兰博基尼" style="display: none">
+            </li>
+            <li><strong>Porsche </strong><br/>保时捷
+                <img src="../img/7.jpg" alt="Porsche 保时捷" style="display: none">
+            </li>
+            <li><strong>Peugeot </strong><br/>标致
+                <img src="../img/8.jpg" alt="Peugeot 标致" style="display: none">
+            </li>
+            <li><strong>Mercedes1 </strong><br/>梅赛德斯 奔驰
+                <img src="../img/9.jpg" alt="Mercedes1 梅赛德斯 奔驰" style="display: none">
+            </li>
+            <li><strong>Buick </strong><br/>别克汽车
+                <img src="../img/10.jpg" alt="Buick 别克汽车" style="display: none">
+            </li>
+        </ul>
+    </div>
+    <script>
+    var last = $("ul li")[0];
+    $("ul li").hover(function(){
+        $(last).children("img")[0].style.display = "none";
+        $(last).removeClass("index");
+        $(this).addClass("index");
+        $(this).children("img")[0].style.display = "block";
+        last = $(this);
+    },function(){
+        $(last).children("img")[0].style.display = "none";
+        $(last).removeClass("index");
+    });
+    </script>
+</body>
+</html>

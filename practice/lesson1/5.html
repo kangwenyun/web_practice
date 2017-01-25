@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入/移出改变样式</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .before{
+        width: 200px;
+        height: 200px;
+        border: 10px solid black;
+        background: black;
+        color: #fff;
+    }
+    .after{
+        width: 200px;
+        height: 200px;
+        border: 10px solid red;
+        cursor: crosshair;
+        color: red;
+    }
+    p{
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+<div class="before">
+    <p>鼠标移入改变样式，鼠标移出恢复。</p> 
+</div>
+<script>
+    var left = ($(window).height()-$(".before").height())/2;
+    $('.before').css("margin-left",left).hover(function(){
+        $('div').toggleClass('before');
+        $('div').toggleClass('after');
+    });
+</script>
+</body>
+</html>

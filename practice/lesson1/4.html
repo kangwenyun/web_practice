@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 用循环将三个Div变成红色</title>
+    <script src="../jquery-3.0.0.min.js"></script>
+    <style>
+    .wrap{
+        text-align: center;
+    }
+    .color{
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .color-1{
+        background: black;
+    }
+    .color-2{
+        background: black;
+    }
+    .color-3{
+        background: black;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button onclick="changeColorByCycle()">点击将DIV变成红色</button>
+        <div>
+            <div class="color color-1"></div>
+            <div class="color color-2"></div>
+            <div class="color color-3"></div>
+        </div>
+    </div>
+    <script>
+    function changeColorByCycle(){
+        [1,2,3].forEach(function(item){
+            var name = $(".color-" + item);
+            name.css("background","red");
+        });
+    }
+    </script>
+</body>
+</html>

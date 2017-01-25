@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完美拖拽</title>
+    <style>
+    body{
+        background:black;
+        margin: 0;
+        font-size: 15px;
+    }
+    .out{
+        width: 300px;
+        height: 150px;
+        background: #fff;
+        border: 2px solid #fff;
+        background: #333;
+        position: absolute;
+        top:100px;
+        left: 100px;
+    }
+    .head{
+        border-bottom: 2px solid #fff;
+        background: #000;
+        height: 30px;
+        text-align: right;
+        line-height: 30px;
+        color: #fff;
+    }
+    .yl{
+        color: yellow;
+    }
+    .cl{
+        color: #fff;
+        margin-left: 30px;
+    }
+    .drag{
+        cursor: move;
+    }
+    </style>
+</head>
+<body>
+    <div class="out" draggable="true">
+        <div class="head">点击回放拖动轨迹</div>
+        <div>
+            <p class="cl">Drag: <span class="yl">false</span></p>
+            <p class="cl">offsetTop: <span class="yl">170</span></p>
+            <p class="cl">offsetLeft: <span class="yl">100</span></p>
+        </div>
+    </div>
+    <script>
+    var dragged;// 被拖拉节点
+    document.getElementsByClassName("out")[0].addEventListener("dragstart", function(event) {
+        dragged = event.target;
+        event.dataTransfer.effectAllowed = "move";
+        document.getElementsByClassName("head")[0].classList.add("drag");
+        document.getElementsByClassName("yl")[0].innerText = "true";
+        document.getElementsByClassName("yl")[1].innerText = event.offsetY;
+        document.getElementsByClassName("yl")[2].innerText = event.offsetX;
+    }, false);
+    document.getElementsByClassName("out")[0].addEventListener("dragend", function(event) {
+        document.getElementsByClassName("head")[0].classList.remove("drag");
+        document.getElementsByClassName("yl")[0].innerText = "false";
+        document.getElementsByClassName("out")["0"].top = event.offsetY;
+        document.getElementsByClassName("out")["0"].left = event.offsetX;
+    }, false);
+    document.getElementsByClassName("out")[0].addEventListener('dragover', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.dataTransfer.dropEffect = 'move';
+        event.dataTransfer.effectAllowed = "move";
+    });
+    document.getElementsByClassName("out")[0].addEventListener('drop', function( event ) {
+        // 防止事件默认行为（比如某些Elment节点上可以打开链接）
+        event.preventDefault();
+        if ( event.target.className === 'dropzone' ) {
+            // 将被拖拉节点插入目标节点
+            dragged.parentNode.removeChild( dragged );
+            event.target.appendChild( dragged );
+        }
+    }, false);
+    document.getElementsByClassName("head")[0].addEventListener("mouseenter",function(event){
+       this.classList.add("drag");
+    },false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 图片列表：鼠标移入/移出改变图片透明度</title>
+    <script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+    <style>
+    img{
+        opacity: 0.3;
+        border: 1px solid black;
+        margin: 5px;
+        cursor: crosshair;
+    }
+    div{
+        border: 1px solid black;
+        width: 700px;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    [1,2,3,4,5,6,7,8,9,10].forEach(function(item){
+        var src = "../img/" + item + ".jpg";
+        var html = "<img src=" + src + ">";
+        $(html).appendTo("div");
+    });
+    $("img").hover(function(){
+        $(this).css("opacity","1");
+    },function(){
+        $(this).css("opacity","0.3");
+    });
+    </script>
+</body>
+</html>

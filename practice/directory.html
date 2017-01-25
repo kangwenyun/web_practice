@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study</title>
+    <script src="jquery-3.0.0.min.js"></script>
+    <style>
+        .wrap{
+            width: 870px;
+        }
+        .lf{
+            float: left;
+        }
+        .rgt{
+            float: left;
+            height: 500px;
+            min-width: 500px;
+        }
+        dl{
+            border: 12px solid #EEE;
+            padding: 5px;
+            border-radius: 10px;
+            font: 700 16px/31px Tahoma;
+        }
+        dl dt{
+            list-style: none;
+            width: 260px;
+            background: #2085c5;
+            margin-top: 1px;
+            padding-left: 10px;
+            color: #fff;
+            font: 700px;
+        }
+        dl dd{
+            display: none;
+            background: #30bded;
+            color: #fff;
+            padding-left: 10px;
+            font: 12px/25px Tahoma;
+            margin: 1px 0px;
+        }
+        .hover{
+            background:#09F; 
+        }
+        a{
+            font-size: 12px;
+            color: #2085c5;
+            float: right
+        }
+        .ifrm{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="lf">
+            <dl>
+                <dt>第一课</dt>
+                    <dd>1)&nbsp控制Div属性</dd>
+                    <dd>2)&nbsp网页换肤</dd>
+                    <dd>3)&nbsp函数接收参数并弹出</dd>
+                    <dd>4)&nbsp用循环将三个Div变成红色</dd>
+                    <dd>5)&nbsp鼠标移入/移出改变样式</dd>
+                    <dd>6)&nbsp记住密码提示框</dd>
+                <dt>第二课</dt>
+                    <dd>1)&nbsp百度输入法</dd>
+                    <dd>2)&nbsp点击Div，显示其innerHTML</dd>
+                    <dd>3)&nbsp求出数组中所有数字的和</dd>
+                    <dd>4)&nbsp弹出层效果</dd>
+                    <dd>5)&nbsp函数传参，改变Div任意属性的值</dd>
+                    <dd>6)&nbsp图片列表：鼠标移入/移出改变图片透明度</dd>
+                    <dd>7)&nbsp简易选项卡</dd>
+                    <dd>8)&nbsp简易JS年历</dd>
+                    <dd>9)&nbsp单一按钮显示/隐藏一播放列表收缩展开</dd>
+                    <dd>10)&nbsp提示框效果</dd>
+                    <dd>11)&nbsp鼠标移过，修改图片路径</dd>
+                    <dd>12)&nbsp复选框（checkbox）全选/全不选/返选</dd>
+                <dt>第三课</dt>
+                    <dd>1)&nbsp用typeof查看数据类型</dd>
+                    <dd>2)&nbsp用parseInt解析数字，并求和</dd>
+                    <dd>3)&nbsp累加按钮，自加1</dd>
+                    <dd>4)&nbsp输入两个数字，比较大小</dd>
+                    <dd>5)&nbsp页面加载后累加，自加1</dd>
+                    <dd>6)&nbsp判断数字是否为两位数</dd>
+                    <dd>7)&nbsp网页计算器</dd>
+                    <dd>8)&nbsp简易网页时钟</dd>
+                    <dd>9)&nbsp倒计时时钟（100秒）</dd>
+                <dt>第四课</dt>
+                    <dd>1)&nbspsetTimeout应用</dd>
+                    <dd>2)&nbsp自动播放一幻灯片效果</dd>
+                    <dd>3)&nbsp自动改变方向一幻灯片效果</dd>
+                    <dd>4)&nbspagruments应用一求出函数参数的总合</dd>
+                    <dd>5)&nbspcss函数一设置/读取对象的属性</dd>
+                    <dd>6)&nbsp当前输入框高亮显示</dd>
+                    <dd>7)&nbsp数组练习：各种数组方法的使用</dd>
+                    <dd>8)&nbsp事件练习：封装兼容性添加、删除事件的函数</dd>
+                    <dd>9)&nbsp星级评分系统</dd>
+                <dt>第五课</dt>
+                    <dd>1)&nbsp模拟select控件</dd>
+                    <dd>2)&nbsp点击页面，显示单击的坐标</dd>
+                    <dd>3)&nbsp用户按下键盘，显示keyCode</dd>
+                    <dd>4)&nbsp阻止右键菜单（阻止默认事件）</dd>
+                    <dd>5)&nbsp跟随鼠标移动（大图展示）</dd>
+                    <dd>6)&nbsp自定义右键菜单</dd>
+                    <dd>7)&nbsp用键盘控制Div</dd>
+                    <dd>8)&nbspDiv闪烁</dd>
+                <dt>第六课</dt>
+                    <dd>1)&nbsp完美拖拽</dd>
+                    <dd>2)&nbsp仿腾讯微博效果</dd>
+                    <dd>3)&nbsp自定义多级右键菜单</dd>
+                <dt>第七课</dt>
+                    <dd>1)&nbsp自动轮播广告（缓冲效果）</dd>
+                    <dd>2)&nbsp图片切换（Loading效果）</dd>
+                    <dd>3)&nbsp移动效果（按轨迹移动）</dd>
+                <dt>第八课</dt>
+                    <dd>1)&nbsp自定义滚动条</dd>
+                    <dd>2)&nbsp拖拽一Clone</dd>
+                    <dd>3)&nbsp拖拽并可以改变大小</dd>
+                <dt>第九课</dt>
+                    <dd>1)&nbsp仿苹果电脑任务栏菜单</dd>
+                    <dd>2)&nbsp拼图小游戏</dd>
+                    <dd>3)&nbsp模拟表单控件</dd>
+                <dt>第十课</dt>
+                    <dd>1)&nbsp为数组添加方法（求和，最大值）</dd>
+                    <dd>2)&nbsp自动轮播广告（面向对象版）</dd>
+                    <dd>3)&nbsp运动框架（面向对象版）</dd>
+                    <dd>4)&nbsp照片墙一多实例演示（面向对象版）</dd>
+                    <dd>5)&nbsp拖拽库（面向对象版）</dd>
+                    <dd>6)&nbsp无缝滚动（面向对象版）</dd>
+                    <dd>7)&nbsp延时加载（面向对象版）</dd>
+                    <dd>8)&nbsp仿腾讯游戏《英雄杀》官网Flash效果</dd>
+                    <dd>9)&nbsp百度有啊通栏展示效果</dd>
+                    <dd>10)&nbsp放烟花效果（面向对象版）</dd>
+                    <dd>11)&nbsp《穿越火线》官网导航菜单</dd>
+                    <dd>12)&nbsp《百度风云榜》TAB切换</dd>
+                    <dd>13)&nbspIBM官网导航条效果</dd>
+                    <dd>14)&nbsp面试题-动态生成表格</dd>
+            </dl>
+        </div>
+        <div class="rgt">
+            <a href="" target="blank">新窗口打开</a>
+            <iframe src="" frameborder="0" class="ifrm"></iframe>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var i = 0;//0表示没有dd显示，1表示有dd显示
+        var last;//上一个被选中的课时
+        $('dl>dt').hover(function(){
+            $(this).addClass('hover');
+        },function(){
+            $(this).removeClass('hover');
+        });
+        $('dl>dt').on('click',function(){
+            if( i == 0 ){
+                $(this).css('background','#09F');
+                $(this).nextUntil('dt').slideDown("normal");
+                i = 1;
+                last = $(this);
+            }else{
+                if( $(last)[0].innerText == $(this)[0].innerText){
+                    $(this).nextUntil('dt').slideUp("normal");
+                    $(this).css('background','#2085c5');
+                    i = 0;
+                    last = $(this);
+                }else{
+                    $(last).nextUntil('dt').slideUp("normal");
+                    $(last).css('background','#2085c5');
+                    $(this).css('background','#09F');
+                    $(this).nextUntil('dt').slideDown("normal");
+                    i = 1;
+                    last = $(this);
+                }
+            }
+        });
+        $('dl>dd').on('click',function(){
+            var src = '';
+            //先确定是第几课
+            switch(last[0].innerText){
+                case '第一课':
+                    src += 'lesson1/';
+                    break;
+                case '第二课':
+                    src += 'lesson2/';
+                    break;
+                case '第三课':
+                    src += 'lesson3/';
+                    break;
+                case '第四课':
+                    src += 'lesson4/';
+                    break;
+                case '第五课':
+                    src += 'lesson5/';
+                    break;
+                case '第六课':
+                    src += 'lesson6/';
+                    break;
+                case '第七课':
+                    src += 'lesson7/';
+                    break;
+                case '第八课':
+                    src += 'lesson8/';
+                    break;
+                case '第九课':
+                    src += 'lesson9/';
+                    break;
+                case '第十课':
+                    src += 'lesson10/';
+                    break;
+            }
+            //再确定是第几小节
+            var num = Number($(this)[0].innerText.split(')')[0]);
+            [1,2,3,4,5,6,7,8,9,10,11,12,13,14].forEach(function(value,index,array){
+                if(num == value){
+                    src = src + num + '.html';
+                    $('iframe').attr("src",src);
+                    $('a').attr("href",src);
+                }
+            });
+        })
+    </script>
+</body>
+</html>
